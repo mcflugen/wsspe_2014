@@ -8,6 +8,52 @@
 - Albert J. Kettner, Community Surface Dynamics Modeling System, Boulder, CO
 
 
+## The Community Surface Dynamics Modeling System ##
+
+The Community Surface Dynamics Modeling System (CSDMS) (Peckham et al., 2013)
+is an NSF-funded project that began in 2007. Its mission is to help a diverse
+community of surface dynamics modelers and model users work together toward
+common goals and standards. Part of this effort involves creating a repository
+of open-source models. Another part involves converting models to plug-and-play
+components that can be reused via dynamic linking within the CSDMS framework to
+create new models. In building its modeling framework, CSDMS has leveraged
+several existing, well-established and open-source software tools. For example,
+CSDMS uses three tools from the Common Component Architecture (CCA) toolchain:
+Babel, Bocca and Ccaffeine. Babel provides interoperability between components
+written in different languages; it currently supports C, C++, Fortran, Java,
+and Python. Bocca helps with creating CCA-compliant components and managing CCA
+component projects. Ccaffeine is a CCA-compliant framework for linking
+components into new applications. All three tools were designed to enable
+component-based modeling in an HPC environment, but they can also be used on
+desktop systems. CSDMS has developed innovative model/component interfaces for
+use with the CCA tools, including the Basic Model Interface (BMI), which uses
+the CSDMS Standard Names (both described below) and the framework-level
+Component Model Interface (CMI). CSDMS has also developed a web-based client
+for its modeling framework (the CSDMS Web Modeling Tool, WMT, described below)
+that allows users to compose new models by connecting and configuring
+components through a simple, browser-based graphical interface.
+
+In order to realize the full power and benefits of component-based modeling, a
+modeling framework like CSDMS needs an efficient mechanism to convert as many
+open-source models as possible to reusable plug-and-play components. Since this
+necessarily requires some involvement from each model's developer, this
+mechanism must be designed to:
+
+- require minimal effort from the model developer,
+- allow the model to continue to be used in a stand-alone manner,
+- not introduce new dependencies into the model,
+- not interfere with the developer's design,
+- not require any modeling framework-specific knowledge on the part of the
+  developer,
+- not require the addition of new code which accommodates the needs of other
+models. 
+
+These requirements became clear during the first few years of the CSDMS project
+by working directly with model developers and listening to their concerns and
+complaints about early designs and other frameworks. This eventually led to the
+innovative design of CSDMS, which can be summarized as follows:
+
+
 ## The Basic Modeling Interface ##
 
 The *Basic Modeling Interface* (BMI) is a component-coupling library interface
@@ -155,7 +201,7 @@ US National Science Foundation.
    high-performance scientific computing. In: Proceedings of the 8th IEEE
    International Symposium on High Performance Distributed Computing.
 1. Brase, J., 2010. Datacite: A global registration agency for research data,
-   Working Paper Series des Rates für Sozial- und Wirtschaftsdaten, No. 149.
+   Working Paper Series des Rates für Sozialund Wirtschaftsdaten, No. 149.
 1. Campbell, K., Overeem, I., Berlin, M., 2013. Taking it to the Streets: the
    Case for Modeling in the Geosciences Undergraduate Curriculum. Computers
    and Geosciences. 53, 123-128.
