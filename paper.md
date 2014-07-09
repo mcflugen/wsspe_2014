@@ -46,7 +46,7 @@ mechanism must be designed to:
 - not require any modeling framework-specific knowledge on the part of the
   developer,
 - not require the addition of new code which accommodates the needs of other
-models. 
+  models. 
 
 These requirements became clear during the first few years of the CSDMS project
 by working directly with model developers and listening to their concerns and
@@ -56,10 +56,10 @@ innovative design of CSDMS, which can be summarized as follows:
 
 ## The Basic Modeling Interface ##
 
-The *Basic Modeling Interface* (BMI) is a component-coupling library interface
+The **Basic Modeling Interface** (BMI) is a component-coupling library interface
 specification designed by CSDMS (Peckham et al., 2013; Syvitski et al., 2014).
 In this context, a component is software that models a particular environmental
-process and can be “plugged into” another component. BMI addresses the
+process and can be "plugged into" another component. BMI addresses the
 interaction of components that operate within a shared memory space by
 providing entry points for: component control (initialize, run, and finalize
 steps), data access, and metadata. This allows developers to write applications
@@ -76,10 +76,29 @@ somewhat overlapping goals, the CSDMS Standard Names provide a more
 comprehensive set of naming rules and patterns for creating unique labels for
 model variables that are not specific to any particular modeling domain.
 
+CSDMS has found that BMI is an acceptable target for model developers. The use
+of BMI has also dramatically reduced the effort required by CSDMS staff to
+create and maintain components. There is now really just one universal CMI
+wrapper to maintain that BMI-enabled models "plug into". The introduction of the
+CSDMS Standard Names provides a practical and elegant solution to the semantic
+mediation problem and Babel solves the language interoperability problem.
+CSDMS has also assembled a large repository of surface process models that now
+includes over 171 open-source models and 56 tools. The repository contains
+terrestrial, coastal, marine, hydrological, carbonate and atmospheric models.
+Geodynamic, atmospheric and ecosystem models will be added over the next few
+years. So far, 55 of the 171 models have been wrapped for use as reusable
+plug-and-play components (although only 6 are currently visible in the new WMT).
+CSDMS has a steering committee, an executive committee, five working groups, six
+focus research groups, an industrial consortium, and over 1150 members as of
+June 2014. Members share information through a wiki.
+
 The CSDMS Standard Names are a lingua franca for variable names between model
 components. They play an important role in the BMI as they provide a mapping of
 a model’s internal variable names to a common language used by the BMI getter
 and setter functions.
+
+
+## CSDMS Standard Names ##
 
 The CSDMS Standard Names are currently being extended to solid Earth modeling
 domains, including geodynamics, seismology, electromagnetic induction and
@@ -110,20 +129,21 @@ users to build and run coupled Earth system models on a high-performance
 computing cluster (HPCC) from a web browser.
 WMT was designed with four objectives:
 
-1.  *Accessibility*. As a web-based application, if you have access to the
+1.  **Accessibility**. As a web-based application, if you have access to the
     Internet, you have access to WMT.
-2.  *Integration*. Easily hyperlink from WMT to resources on the CSDMS
+2.  **Integration**. Easily hyperlink from WMT to resources on the CSDMS
     portal—including model documentation, labs, lectures, tutorials and
     movies—or to other resources on the Internet.
-3.  *Portability*. WMT has a native JavaScript interface, so it can be
+3.  **Portability**. WMT has a native JavaScript interface, so it can be
     accessed on any modern web browser, including tablet and mobile
     versions of browsers.
-4.  *Maintenance*. Because modern browsers tend to adhere to web
+4.  **Maintenance**. Because modern browsers tend to adhere to web
     standards, which lead to fewer cross-compatibility issues than
     operating systems, only one version of WMT needs to be developed
     and maintained.
 
 With WMT, a user can:
+
 1.  select a Common Component Architecture (CCA) component model
     from a list to run in standalone mode;
 2.  build a coupled model from multiple CCA components organized as nodes of a
