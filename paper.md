@@ -1,6 +1,7 @@
 # Building Sustainable Software - The CSDMS-2.0 Approach #
 
 ## Authors ##
+
 - Eric W. H. Hutton, Community Surface Dynamics Modeling System, Boulder, CO
 - Mark D. Piper, Community Surface Dynamics Modeling System, Boulder, CO
 - Irina Overeem, Community Surface Dynamics Modeling System, Boulder, CO
@@ -55,27 +56,42 @@ currently divergent metadata ontologies.
 
 ### Connecting Components with the Web Modeling Tool ###
 
-The CSDMS Web Modeling Tool (WMT) is the web-based successor to the desktop
-Component Modeling Tool (Peckham et al., 2013). WMT provides a client-side
-drag-and-drop graphical interface and a server-side database and application
-programming interface (API) that allows users to build and run coupled surface
-dynamics models on a high-performance computing cluster (HPCC) from a web 
-browser on a desktop, laptop or tablet computer.
+The CSDMS Web Modeling Tool (WMT; https://csdms.colorado.edu/wmt) is the
+web-based successor to the desktop Component Modeling Tool. WMT is a web
+application that provides an Ajax client-side graphical interface (the WMT
+client) and a RESTful server-side database and API (the WMT server) that allows
+users to build and run coupled Earth system models on a high-performance
+computing cluster (HPCC) from a web browser.
+WMT was designed with four objectives:
+
+1.  *Accessibility*. As a web-based application, if you have access to the
+    Internet, you have access to WMT.
+2.  *Integration*. Easily hyperlink from WMT to resources on the CSDMS
+    portal—including model documentation, labs, lectures, tutorials and
+    movies—or to other resources on the Internet.
+3.  *Portability*. WMT has a native JavaScript interface, so it can be
+    accessed on any modern web browser, including tablet and mobile
+    versions of browsers.
+4.  *Maintenance*. Because modern browsers tend to adhere to web
+    standards, which lead to fewer cross-compatibility issues than
+    operating systems, only one version of WMT needs to be developed
+    and maintained.
 
 With WMT, a user can:
-- Select a component model from a list to run in standalone mode,
-- Build a coupled model from multiple components organized as nodes of a tree
-structure,
-- View and edit the parameters for these model components,
-- Upload custom input files to the server,
-- Save models to a server, where they can be accessed on any Internet-accessible
-computer,
-- Share saved models with others in the community, and
-- Run a model by connecting to a remote HPCC where the components are installed.
+1.  select a Common Component Architecture (CCA) component model
+    from a list to run in standalone mode;
+2.  build a coupled model from multiple CCA components organized as nodes of a
+    tree structure;
+3.  view and edit the parameters of the model components;
+4.  save models to a server, where they can be accessed on any computer
+    connected to the Internet;
+5.  share saved models with others in the community;
+6.  run a model by connecting to a remote HPCC where the components are
+    installed.
 
-Although WMT is web-based, the building and configuration of a model can be
-done offline.  Reconnection is necessary only when saving a model and
-submitting it for a run.
+Although WMT is web-based, the building and configuring of a model can be done
+offline. Reconnection is necessary only when saving a model and submitting it
+for a run.
 
 ## Digital Object Identifiers for Numerical Models ##
 
@@ -96,13 +112,14 @@ mainly DOIs to publishing applications. Since 2005 DOIs were also made available
 for research data (Paskin, 2005). CSDMS appears to be the first to assign
 Digital Object Identifiers (DOIs) to numerical source code, as of 2013. The
 advantages of adopting a DOI system for models are:
+
 - Guarantee credit to a model developer.
-- Easily reuse and replicate research as other researchers can directly locate a
-referenced model.
-- Providing a higher visibility, as content with a DOI is 5 times more likely to
-deliver active links than content without.
+- Easily reuse and replicate research as other researchers can directly
+  locate a referenced model.
+- Providing a higher visibility, as content with a DOI is 5 times more likely
+  to deliver active links than content without.
 - Giving the opportunity to for example funding agencies to track usage, so to
-measure impact.
+  measure impact.
 
 CSDMS collaborates with Integrated Earth Data Applications
 (IEDA), a formal Publication Agent of the DOI system through the German National
