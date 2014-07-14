@@ -52,7 +52,8 @@
   Eric W. H. Hutton$^{\dag}$,
   Mark D. Piper$^{\dag}$,
   Irina Overeem$^{\dag}$,
-  Albert J. Kettner$^{\dag}$
+  Albert J. Kettner$^{\dag}$,
+  James P. M. Syvitski$^{\dag}$,
 }
 
 \thanks{{}$^{\dag}$Community Surface Dynamics Modeling System, University of
@@ -66,7 +67,7 @@ model \emph{users} and \emph{developers} to use and create robust software
 quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
 earth-system models and tools to an international (67 country) community
 with the goal of building the set of tools necessary to model the
-earth system. Modelers look to \csdms{} for access to hundreds of open
+earth system. Modelers use \csdms{} for access to hundreds of open
 source surface-dynamics models and tools, as well as model metadata. Such a
 model repository increases model transparency and helps eliminate
 duplication by presenting the current state of modeling efforts.
@@ -184,7 +185,7 @@ original source. The repository now contains over 200 models and tools (over
 \label{sec:doi}
 
 \csdms{} has implemented a
-Digital Object Identifier (\doi{}) system for software within the model
+Digital Object Identifier (\doi{}) system for software within its model
 repository to guarantee recognition to software contributors.
 \csdms{} was among the first software venues to assign \doi{}s to
 open source software. The advantages of adopting a \doi{} system for open
@@ -241,9 +242,11 @@ calling application with the necessary level of control to connect components.
 ESMF~\cite{hill2004architecture}, OpenMI~\cite{gregersen2007openmi}, and
 OMS~\cite{david2002object}, identifies an interface that, at a minimum,
 provides functionality to \emph{initialize}, \emph{update}, and
-\emph{finalize} a component. However, for more complicated (and 2-way)
-coupling components must implement the \bmi{} methods providing data access,
-and model metadata.
+\emph{finalize} a component. For more complicated (and 2-way)
+coupling, components must implement \bmi{} methods providing data access,
+and model metadata. For data access, \bmi{} defines a set of \emph{getter}
+and \emph{setter} methods that allow model components to present internal data
+for both reading and writing.
 
 \csdms{} has found that \bmi{} is an acceptable target for model developers.
 The use of \bmi{} has also dramatically reduced the effort required by
@@ -357,7 +360,7 @@ The modeling coupling framework is designed to catalyze Earth-surface process re
 through user feedback from clinics and tutorials and one-on-one interviews
 with \csdms{} members.  Modeling courses at the University of Colorado,
 clinics at the International Summer Institute at the University of Minnesota,
-and clinics at annual \csdms{} Annual Meetings are the dominant forums for
+and clinics at \csdms{} Annual Meetings are the dominant forums for
 this testing and feedback. 
 
 Over the last 4 years over 150 graduate students - from geography, hydrology,
@@ -366,10 +369,10 @@ enrolled in intensive \csdms{}-run modeling courses. These courses
 provide an excellent use case for us to test usability and access to our
 tools. Students reported in post-course surveys that they were unfamiliar with
 the use of models on a high performance computing cluster beforehand (rated
-their familiarity as 1.5 average on a scale of 1-5), but ended the courses
-with familiarity and being more comfortable with running and changing
-simulations as well as visualizing results (average rating approaches 4 on
-a Likert scale of 1-5)~\cite{overeem2013strategies}. 
+their familiarity as 1.5 average on a Likert scale of 1-5), but ended the
+courses with familiarity and being more comfortable with running and changing
+simulations as well as visualizing results (average rating approaches 4)
+~\cite{overeem2013strategies}. 
 
 Course and clinic materials are posted online as educational resources.
 \csdms{} develops \wmt{}-specific help pages for all models currently
