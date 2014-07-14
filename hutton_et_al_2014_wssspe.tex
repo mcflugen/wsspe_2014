@@ -51,8 +51,8 @@
 \author{
   Eric W. H. Hutton$^{\dag}$,
   Mark D. Piper$^{\dag}$,
-  Irina Overeem$^{\dag}$
-  Albert J. Kettner$^{\dag}$,
+  Irina Overeem$^{\dag}$,
+  Albert J. Kettner$^{\dag}$
 }
 
 \thanks{{}$^{\dag}$Community Surface Dynamics Modeling System, University of
@@ -66,17 +66,18 @@ model \emph{users} and \emph{developers} to use and create robust software
 quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
 earth-system models and tools to an international (67 country) community
 with the goal of building the set of tools necessary to model the
-earth system. \csdms{} is a place modelers look to for access to hundreds open
+earth system. Modelers look to \csdms{} for access to hundreds of open
 source surface-dynamics models and tools, as well as model metadata. Such a
-model repository increases model transparency and helps to eliminate the
-duplication of effors by presenting the current state of modeling efforts.
-To increase software sustainability, composability and interoperability \csdms{}
-promotes standards that define common modeling interfaces, semantic mediation
-between models, and model metadata. Through online resources and workshops,
-\csdms{} promotes software engineering best practices, which are foreign to many
-developers within our modeling community. For example, version control, unit
-testing, continious integration, test-driven development, well-written
-\emph{clean code} are all topics of the educational mission of \csdms{}.
+model repository increases model transparency and helps eliminate
+duplication by presenting the current state of modeling efforts.
+To increase software sustainability, composability and interoperability,
+\csdms{} promotes standards that define common modeling interfaces, semantic
+mediation between models, and model metadata. Through online resources and
+workshops, \csdms{} promotes software engineering best practices, which are
+unfamiliar to many developers within our modeling community. For example,
+version control, unit testing, continious integration, test-driven
+development, and well-written \emph{clean code} are all topics of the
+educational mission of \csdms{}.
 
 \end{abstract}
 
@@ -114,7 +115,7 @@ uses
 the \csdms{} Standard Names (Section~\ref{sec:standardnames}) and a framework
 within which models can be coupled and enhanced with a set of \bmi{}-compatible
 service components.
-The \csdms{} Web Modeling Tool (\wmt{} - Section~\ref{sec:wmt}) is a web-based client that provides a
+The \csdms{} Web Modeling Tool (\wmt{} - Section~\ref{sec:wmt}) is a web-based application that provides a
 graphical interface to this framework and allows users to compose new models
 by connecting and configuring components in a simple, browser-based graphical
 interface.
@@ -191,9 +192,9 @@ source software are:
 \begin{itemize}
 \item Guarantee credit to the software developer
 \item Easily reuse and replicate research as software is directly locatable 
-\item Increase software visibility, \doi{} content is 5 times more likely to
+\item Increase software visibility: \doi{} content is 5 times more likely to
       deliver active links than content without.
-\item Provide e.g. funding agencies the ability to track usage, so measure
+\item Provide funding agencies with the ability to track usage, to measure
       impact.
 \end{itemize}
 
@@ -234,8 +235,8 @@ functionality a framework requires from its components will be significantly
 more long-lived. Thus, a component should outlive any framework that it might
 operate within.
 
-The \bmi{} identifies the entry points into software components that provides a
-calling appication with the necessary level of control to connect components.
+The \bmi{} identifies the entry points into software components that provide a
+calling application with the necessary level of control to connect components.
 \csdms{}, as well as other modeling frameworks such as
 ESMF~\cite{hill2004architecture}, OpenMI~\cite{gregersen2007openmi}, and
 OMS~\cite{david2002object}, identifies an interface that, at a minimum,
@@ -297,14 +298,14 @@ with four objectives:
 \item \emph{Portability}. \wmt{} has a native JavaScript interface, so it can
       be accessed on any modern web browser
 
-%\item \emph{Maintenance}. Because modern browsers tend to adhere to web
-%      standards, which lead to fewer cross-compatibility issues than
-%      operating systems, only one version of WMT needs to be developed
-%      and maintained.
+\item \emph{Maintenance}. Because modern browsers tend to adhere to web
+      standards, which lead to fewer cross-compatibility issues than
+      operating systems, only one version of WMT needs to be developed
+      and maintained.
 
 \end{itemize}
 With \wmt{}, users can: \emph{run} single component models, build (2-way)
-\emph{coupled models}, view and \emph{edit} model parameters, \emph{share}
+\emph{coupled models}, view and \emph{edit} model parameters, and \emph{share}
 saved models with others in the community.
 
 \begin{comment}
@@ -334,6 +335,7 @@ saved models with others in the community.
   \end{center}
   \label{fig:wmt_screenshot}
 \end{figure}
+
 \begin{comment}
 \subsection{Software sustainability through expanded functionality}
 
@@ -361,8 +363,8 @@ this testing and feedback.
 Over the last 4 years over 150 graduate students - from geography, hydrology,
 geology, oceanography, earth sciences and engineering departments - have
 enrolled in intensive \csdms{}-run modeling courses. These courses
-provide an excellent use case for us to test usability and access to the
-tool. Students reported in post-course surveys that they were unfamiliar with
+provide an excellent use case for us to test usability and access to our
+tools. Students reported in post-course surveys that they were unfamiliar with
 the use of models on a high performance computing cluster beforehand (rated
 their familiarity as 1.5 average on a scale of 1-5), but ended the courses
 with familiarity and being more comfortable with running and changing
@@ -394,64 +396,5 @@ from the US National Science Foundation.
 \bibliographystyle{plain}
 
 \bibliography{wssspe-citations}{}
-
-\begin{comment}
-\huttonnote{Add something about model DOIs in the abstract}
-
-\huttonnote{
-\begin{itemize}
-\item improving the development process that leads to new software
-  \begin{itemize}
-  \item methods to develop sustainable software from the outset
-  \item effective approaches to reusable software created as a by-product of
-        research
-  \item impact of computer science research on the development of scientific software
-  \end{itemize}
-\end{itemize}
-}
-
-\huttonnote{This is Irina's section.}
-
-\huttonnote{
-\begin{itemize}
-\item building large and engaged user communities
-  \begin{itemize}
-  \item developing strong advocates
-  \item measurement of usage and impact
-  \end{itemize}
-\item encouraging industry's role in sustainability
-  \begin{itemize}
-  \item engagement of industry with volunteer communities
-  \item incentives for industry
-  \item incentives for community to contribute to industry-driven projects
-  \end{itemize}
-\item improving education and training
-  \begin{itemize}
-  \item best practices for providing graduate students and postdoctoral
-        researchers in domain communities with sufficient training in
-        software development
-  \item novel uses of sustainable software in education (K-20)
-  \item case studies from students on issues around software development in
-        the undergraduate or graduate curricula
-  \end{itemize}
-\end{itemize}
-}
-
-\huttonnote{This is Albert's section (he's rewriting this)}
-
-\huttonnote{
-\begin{itemize}
-\item recommending policy changes
-  \begin{itemize}
-  \item software credit, attribution, incentive, and reward
-  \item issues related to multiple organizations and multiple countries, such
-        as intellectual property, licensing, etc.
-  \item mechanisms and venues for publishing software, and the role of
-        publishers
-  \end{itemize}
-\end{itemize}
-}
-\end{comment}
-
 
 \end{document}
