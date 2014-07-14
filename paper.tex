@@ -21,6 +21,7 @@
 \usepackage{wrapfig}
 \usepackage{framed,color}
 \usepackage{fancybox}
+\usepackage{verbatim}
 
 %\setcounter{secnumdepth}{3}
 %\setcounter{tocdepth}{3}
@@ -38,9 +39,14 @@
 
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
 
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
 \newcommand{\todo}[1]{{\color{blue}$\blacksquare$~\textsf{[TODO: #1]}}}
 \newcommand{\huttonnote}[1]{ {\textcolor{magenta}    { ***Eric:      #1 }}}
 \DeclareRobustCommand{\csdms}{\textsc{csdms}}
+\DeclareRobustCommand{\doi}{\textsc{doi}}
+\DeclareRobustCommand{\bmi}{\textsc{bmi}}
+\DeclareRobustCommand{\wmt}{\textsc{wmt}}
 
 % Don't use tt font for urls
 \urlstyle{rm}
@@ -65,7 +71,7 @@ project whose focus is to aid a diverse community of earth and ocean system
 model \emph{users} and \emph{developers} to use and create robust software
 quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
 earth-system models and tools to an international (67 country) community
-with the goal of building a complete set of tools necessary to model the
+with the goal of building the set of tools necessary to model the
 earth system. \csdms is a place modelers look to for access to hundreds open
 source surface-dynamics models and tools, as well as model metadata. Such a
 model repository increases model transparency and helps to eliminate the
@@ -76,7 +82,7 @@ between models, and model metadata. Through online resources and workshops,
 \csdms promotes software engineering best practices, which are foreign to many
 developers within our modeling community. For example, version control, unit
 testing, continious integration, test-driven development, well-written
-\emph{clean code}.
+\emph{clean code} are all topics of the educational mission of \csdms{}.
 
 \end{abstract}
 
@@ -84,40 +90,78 @@ testing, continious integration, test-driven development, well-written
 
 \section{The Community Surface Dynamics Modeling System}
 
-The Community Surface Dynamics Modeling System (\csdms{})
-~\cite{peckham2012component}
-is an NSF-funded project that began in 2007. Its mission is to help a diverse
-community of surface dynamics model \emph{developers} and model \emph{users}
-work together toward
-common goals and standards. Part of this effort involves creating a repository
-of open-source models. Another part involves converting models to plug-and-play
-components that can be reused via dynamic linking within the \csdms framework to
-create new models. In building its modeling framework, \csdms has leveraged
+The mission of the Community Surface Dynamics Modeling System (\csdms{})
+~\cite{peckham2012component} is to help a diverse modeling community toward
+common goals and standards.
+%The Community Surface Dynamics Modeling System (\csdms{})
+%is an NSF-funded project that began in 2007. Its mission is to help a diverse
+%community of surface dynamics model \emph{developers} and model \emph{users}
+%work together toward
+%common goals and standards.
+This effort involves creating:
+\begin{itemize}
+  \item a repository of source code and metadata for open-source models and
+    tools (section~\ref{sec:organizing})
+  \item reusable plug-and-play model components and a framework
+        within which these components can be coupled to create new models
+        (section~\ref{sec:reusable})
+  \item an efficient and open modeling community through education and
+        standards (section~\ref{sec:education})
+\end{itemize}
+
+%of open-source models. Another part involves converting models to plug-and-play
+%components that can be reused via dynamic linking within the \csdms framework to
+%create new models.
+
+In building a modeling framework, \csdms{} has leveraged
 several existing, well-established and open-source software tools. For example,
-\csdms uses three tools from the Common Component Architecture (CCA) toolchain:
-Babel, Bocca and Ccaffeine. Babel provides interoperability between components
+\csdms{} uses tools from the Common Component Architecture (CCA)
+~\cite{armstrong1999toward} toolchain: \emph{Babel}, and \emph{Bocca}. Babel
+provides interoperability between components
 written in different languages; it currently supports C, C++, Fortran, Java,
 and Python. Bocca helps with creating CCA-compliant components and managing CCA
-component projects. Ccaffeine is a CCA-compliant framework for linking
-components into new applications. All three tools were designed to enable
-component-based modeling in an HPC environment, but they can also be used on
-desktop systems. \csdms has developed innovative model/component interfaces for
-use with the CCA tools, including the Basic Model Interface (BMI), which uses
-the \csdms Standard Names (both described below) and the framework-level
-Component Model Interface (CMI). \csdms has also developed a web-based client
-for its modeling framework (the \csdms Web Modeling Tool, WMT, described below)
-that allows users to compose new models by connecting and configuring
-components through a simple, browser-based graphical interface.
+component projects.
+%Ccaffeine is a CCA-compliant framework for linking
+%components into new applications. All three tools were designed to enable
+%component-based modeling in an HPC environment, but they can also be used on
+%desktop systems.
 
+\csdms{} has developed innovative model/component interfaces that promote
+model reuse and interoperability,
+including the Basic Model Interface (\bmi{} - section~\ref{sec:bmi}), which
+uses
+the \csdms{} Standard Names (section~\ref{sec:standardnames}) and a framework
+within which models can be coupled and enhanced with a set of \bmi{}-compatible
+service components.
+%Component Model Interface (CMI).
+The \csdms{} Web Modeling Tool (\wmt{} - section~\ref{sec:wmt}) is a web-based client that provides a
+graphical interface to this framework and allows users to compose new models
+by connecting and configuring components in a simple, browser-based graphical
+interface.
+
+%\csdms{} has also developed a web-based client through which users 
+%for its modeling framework (the \csdms Web Modeling Tool, WMT, described below)
+%that allows users to compose new models by connecting and configuring
+%components through a simple, browser-based graphical interface.
+
+\begin{comment}
 In order to realize the full power and benefits of component-based modeling, a
-modeling framework like \csdms needs an efficient mechanism to convert as many
+modeling framework like \csdms{} needs an efficient mechanism to convert as many
 open-source models as possible to reusable plug-and-play components. Since this
-necessarily requires some involvement from each model's developer, this
-mechanism must be designed to:
-
+necessarily requires some involvement from each model's developer (\emph{who,
+likely, is not paid to do this}), this mechanism must require minimal effort
+and the benifit to the developer should be clear.
+In the first few years of the \csdms{} project, we worked directly with model
+developers and conducted one-on-one interviews to hear their concerns and
+complaints about early designs and other frameworks. In addition to being easy
+to implement, the following requirements of a model wrapping procedure became
+clear:
+%Through working directly with model developers and listening to their concerns
+%and complaints about early designs and other frameworks,
+%the following requirements presented themselves:
 \begin{itemize}
 
-\item require minimal effort from the model developer,
+%\item require minimal effort from the model developer,
 
 \item allow the model to continue to be used in a stand-alone manner,
 
@@ -133,76 +177,149 @@ mechanism must be designed to:
 
 \end{itemize}
 
-These requirements became clear during the first few years of the \csdms project
-by working directly with model developers and listening to their concerns and
-complaints about early designs and other frameworks.
+%These requirements became clear during the first few years of the \csdms{}
+%project
+%by working directly with model developers and listening to their concerns and
+%complaints about early designs and other frameworks.
+\end{comment}
 
-\section{Building a User Community}
+\section{Organizing and Documenting Open-Source Models}
+\label{sec:organizing}
 
-\csdms{} provides cyber-infrastructure to promote the quantitative modeling of
-earth surface processes. The US National Science Foundation funds CSDMS, but
-the community is international and includes industry and federal agency
-representatives in addition to members from academic institutions. The
-initiative has been growing with >150 people per year. CSDMS now fosters a
-community of ~1150 scientists who work on prediction of the movement of fluids,
-and the production, erosion, transport, and deposition of sediment and
-nutrients in landscapes and seascapes. 
+\subsection{The \csdms{} Model Repository}
+\label{sec:repository}
 
-\section{Model Repository}
+Open-source software reduces redundancy, provides transparency through
+external review and makes research replicable, which is fundamental to
+scientific practices~\cite{ince2012case}.
+Software accessibility is a key value of the \csdms{} mission. \csdms{}
+ensures code developed by individual researchers or small research teams
+remains accessible beyond the lifetime of a specific research project. Code
+developers are required to distribute their codes under open-source licenses. 
 
-Software accessibility is a key value of the CSDMS mission. CSDMS ensures that code developed by individual researchers or small research teams remains accessible beyond the lifetime of a specific research project. Code developers are coaxed into providing their codes under open-source licenses. 
+\csdms{} has built an online model repository that not only contains model
+source code but also documents the submitted code as model metadata, runs
+basic smoke-tests of the models, (optionally) maintains the source code in a
+\csdms-hosted version control system, and provides easy downloads of the
+original source. The repository now contains over 200 models and tools (over
+4M lines of code) and has recieved over 13k model downloads.
 
-CSDMS has built an online model repository that importantly documents the submitted code with metadata, smoke-tests codes on the CSDMS High Performance Computing Cluster, maintains a snapshot of submitted source code in a version-control system, and provides easy downloads of the original source code. This repository now contains 172 codes and 56 tools, or 4,074,236 lines of source code (a source code line is defined as any line that is not part of a comment, and is not blank).
+%importantly documents the
+%submitted code with metadata, smoke-tests codes on the CSDMS High Performance Computing Cluster, maintains a snapshot of submitted source code in a version-control system, and provides easy downloads of the original source code. This repository now contains 172 codes and 56 tools, or 4,074,236 lines of source code (a source code line is defined as any line that is not part of a comment, and is not blank).
 
-We do know our community values this resource, we track downloads of each individual code and the total number of downloads since November 2008 is >13,218 (as of July 2014).
+%We do know our community values this resource, we track downloads of each individual code and the total number of downloads since November 2008 is >13,218 (as of July 2014).
 
-\section{Software sustainability through expanded functionality}
+\subsection{Digital Object Identifiers for Numerical Models}
+\label{sec:doi}
 
-Another important goal of CSDMS is to enable the rapid development and application of linked dynamical models tailored to specific landscape-basin evolution problems and at specific temporal and spatial scales. Interdisciplinarity and coupling is a critical step towards advancing predictive modeling~\cite{voinov2010community}.
+%\csdms{} is a strong advocate of truly open source software.
 
-CSDMS develops a modeling environment containing a suite of integrated, ever-improving software modules, with expanded functionality beyond the original stand-alone codes. 
+%The \doi{} system for numerical models is adopted by
+%\csdms as an incentive towards the earth surface processes community, to
+%stimulate contributions towards open source software by ensuring recognition
+%towards its developers.
 
-The modeling coupling framework is designed to catalyze Earth-surface process research by empowering a broad community of scientists, students and applied modelers with computing tools, streamlining the process of idea generation and hypothesis testing through linked surface dynamics models, and enabling rapid creation and coupling of models tailored to specific settings, scientific problems, and time scales
+\csdms{} has implemented a
+Digital Object Identifier (\doi{}) system for software within the model
+repository to guarantee recognition to software contributors.
+\csdms{} was among the first software venues to assign \doi{}s to
+open source software. The advantages of adopting a \doi{} system for open
+source software are: 
+\begin{itemize}
+\item Guarantee credit to the software developer
+\item Easily reuse and replicate research as software is directly locatable 
+\item Increase software visibility, \doi{} content is 5 times more likely to
+      deliver active links than content without.
+\item Provide e.g. funding agencies the ability to track usage, so measure
+      impact.
+\end{itemize}
 
-\section{CSDMS has an educational mission}
+%\csdms{} acts as a venue through which open source code of
+%earth surface models are promoted, either by hosting or pointing towards open
+%source software.
 
-WMT provides the ability to run models with an easy to use graphical interface and intends to serve novice and more experienced modelers alike. The WMT beta version was released in May 2014  as a sequel to the CMT.   IF staff habitually evaluates the effectiveness of this tool and uses the feedback to improve the functionality: modeling courses at the University of Colorado, clinics at the International Summer Institute at the University of Minnesota, and clinics at annual CSDMS Annual Meetings are the dominant forums for this testing. 
+%A Digital Object Identifier (\doi{}) system is implemented to
+%guarantee recognition to open source software contributors. \doi{} systems are
+%typically used to identify intellectual property in the digital environment.
+%It is used principally by publishers, and is an implementation of the Handle
+%System for persistent identifiers. The International \doi{} Federation (IDF)
+%appoints Registration Agencies who allocate \doi{} prefixes, register \doi{} Names,
+%and provide the necessary infrastructure to allow registrants to declare and
+%maintain metadata.
+%\csdms is among the first software venues to assign \doi{}s to
+%open source software. The advantages of adopting a \doi{} system for open source
+%software are: 
+%\begin{itemize}
+%\item Guarantee credit to the software developer
+%\item Easily reuse and replicate research as software is directly locatable 
+%\item Increase software visibility, \doi{} content is 5 times more likely to
+%      deliver active links than content without.
+%\item Provide e.g. funding agencies the ability to track usage, so measure
+%      impact.
+%\end{itemize}
 
-Over the last 4 years >150 graduate students were enrolled in intensive modeling courses, originating from geography, hydrology, geology, oceanography, earth sciences and engineering departments. These courses provided an excellent use case for us to test usability and access to the tool. Students reported in post-course surveys that they were unfamiliar with the use of models on a high performance computing cluster beforehand (rated their familiarity as 1.5 average on a scale of 1-5), but ended the courses with familiarity and being more comfortable with running and changing simulations as well as visualizing results (average rating approaches 4 on a Likert scale of 1-5). 
+\begin{comment}
+\csdms{} requests its \doi{}s through the Integrated Earth Data Applications,
+%(\textsc{IEDA}),
+a formal Publication Agent of the \doi{} system that operates through the German
+National Library of Science and Technology.
+\end{comment}
 
-Focused hands-on clinics at meetings also allowed more than 150 CSDMS members to experience the ease of use of CMT, and now WMT, and try several examples of how to use the tool. 
+Only stable versions of open source
+software that are physically hosted through the \csdms{} repository will be
+assigned a \doi{}. For model software citations, \csdms{} recommends the
+following the DataCite guidelines~\cite{brase2009datacite}.
 
-Course and clinic materials are posted online as educational resources. IF staff are developing WMT-specific help pages for all models currently available as components, so that users can easily learn about model parameters and input files. In addition, IF staff members are developing web-based video tutorials that show how to run models.
+\begin{shaded}
+\leftskip 0.25in
+\parindent -0.25in
+\tt{
+Developer, A., Developer, B. (Year of publication). \emph{Name of the model},
+Model Version. Identifier.
+}
+%\emph{ModelDeveloper(s)}, (\emph{PublicationYear}). \emph{ModelName},
+%\emph{ModelVersion}. \emph{Identifier}.
+\end{shaded}
 
-\section{The Basic Modeling Interface}
+\section{Reusable Components}
+\label{sec:reusable}
 
-The \emph{Basic Modeling Interface} (BMI) is a component-coupling library
+\subsection{Sustainability through standards}
+
+\subsubsection{The Basic Modeling Interface}
+\label{sec:bmi}
+
+The \emph{Basic Modeling Interface}\footnote{https://github.com/csdms/bmi}
+(\bmi{}) is a component-coupling library
 interface specification designed by \csdms~\cite{peckham2012component,
 syvitski2014plug}.  In this context, a component is software that models a
-particular environmental process and can be "plugged into" another component.
+particular environmental process and can be \emph{plugged into} another
+component.
 
-The BMI specification was designed without any particular model-coupling
+The \bmi{} specification was designed without any particular model-coupling
 framework in mind.  Rather, it was designed to be framework agnostic. We
 recognize model-coupling frameworks and tools may come and go but the
 functionality a framework requires from its components will be significantly
 more long-lived. Thus, a component should outlive any framework that it might
 operate within.
 
-The BMI identifies the entry points into software components that provides a
+The \bmi{} identifies the entry points into software components that provides a
 calling appication with the necessary level of control to connect components.
 \csdms, as well as other modeling frameworks such as
 ESMF~\cite{hill2004architecture}, OpenMI~\cite{gregersen2007openmi}, and
 OMS~\cite{david2002object}, identifies an interface that, at a minimum,
 provides functionality to \emph{initialize}, \emph{update}, and
-\emph{finalize} a component. However, for more tight coupling the components
-must implement an interface to provide data access, and model metadata.
+\emph{finalize} a component. However, for more complicated (and 2-way)
+coupling components must implement the \bmi{} methods providing data access,
+and model metadata.
 
-\csdms has found that BMI is an acceptable target for model developers. The use
-of BMI has also dramatically reduced the effort required by \csdms staff to
-create and maintain components. So long as a model component strictly exposes
-a BMI, it can automatically be incorporated into the \csdms model-coupling
-framework where it can then connect to compatible components to form larger
-models.
+\csdms{} has found that \bmi{} is an acceptable target for model developers.
+The use of \bmi{} has also dramatically reduced the effort required by
+\csdms{} staff to create and maintain components. So long as a model component
+strictly exposes a \bmi{}, it can automatically be incorporated into the
+\csdms{} model-coupling framework where it can then connect to compatible
+components to form larger models and obtain additional functionality through
+\bmi{} compatible tools (for example, NetCDF output, grid mapping).
 
 %The introduction of the
 %\csdms Standard Names provides a practical and elegant solution to the semantic
@@ -216,27 +333,31 @@ models.
 %So far, 55 of the 171 models have been wrapped for use as reusable
 %plug-and-play components (although only 6 are currently visible in the new WMT).
 
+\subsubsection{CSDMS Standard Names}
+\label{sec:standardnames}
 
-\section{CSDMS Standard Names}
+%\huttonnote{Taken from the SSI proposal. I need to rewrite this.}
 
-\huttonnote{Taken from the SSI proposal. I need to rewrite this.}
+The \csdms{} \emph{Standard Names}\footnote{https://github.com/csdms/bmi}
+are a common language for variable names exchanged between models. They play
+an important role in the \bmi{} as they provide a mapping of a model's
+internal variable names to a common language used by the \bmi{} getter and
+setter functions.
 
-The \csdms Standard Names are a lingua franca for variable names between model
-components. They play an important role in the BMI as they provide a mapping of
-a model's internal variable names to a common language used by the BMI getter
-and setter functions.
-
-Most models require input variables and produce output variables. In a
-component-based modeling framework, like \csdms, a set of components becomes a
-complete model when every component is able to obtain the input variables it
-needs from another component. The \csdms Standard Names were developed to
-provide a practical solution to this semantic mediation problem
-~\cite{peckham2012component, syvitski2014plug}.
-While the CF Convention Standard Names, which were
-introduced in the domain of the ocean and atmosphere model domains, have
-somewhat overlapping goals, the \csdms Standard Names provide a more
-comprehensive set of naming rules and patterns for creating unique labels for
-model variables that are not specific to any particular modeling domain.
+Most models require input variables and produce output variables. For model
+components to be reusable and interoperable (either within the \csdms{}
+framework or any framework in general)
+%In a component-based modeling framework, like \csdms{},
+a set of components become a complete model when every component is able to
+obtain the input variables it needs from another component. The \csdms{}
+Standard Names were developed to provide a practical solution to this
+semantic mediation problem ~\cite{peckham2012component, syvitski2014plug}.
+%While the CF Convention Standard Names, which were
+%introduced in the domain of the ocean and atmosphere model domains, have
+%somewhat overlapping goals,
+The \csdms{} Standard Names provide a comprehensive set of naming rules and
+patterns for creating unique labels for model variables that are not specific
+to any particular modeling domain.
 
 %The \csdms Standard Names are currently being extended to solid Earth modeling
 %domains, including geodynamics, seismology, electromagnetic induction and
@@ -250,69 +371,135 @@ model variables that are not specific to any particular modeling domain.
 %within the EarthCube community that aim to achieve synergy between these
 %currently divergent metadata ontologies.
 
+\subsection{Connecting and running models through the web}
+\label{sec:wmt}
 
-\section{Reusable Components}
+%\huttonnote{Taken from the SSI proposal. I need to rework this a bit.}
 
-
-\subsection{The \csdms Modeling Framework}
-
-
-\subsection{Connecting Components with the Web Modeling Tool}
-
-\huttonnote{Taken from the SSI proposal. I need to rework this a bit.}
-
-The \csdms Web Modeling Tool (WMT; https://csdms.colorado.edu/wmt) is the
-web-based successor to the desktop Component Modeling Tool. WMT is a web
-application that provides an Ajax client-side graphical interface (the WMT
-client) and a RESTful server-side database and API (the WMT server) that allows
-users to build and run coupled Earth system models on a high-performance
-computing cluster (HPCC) from a web browser.
-WMT was designed with four objectives:
+The \csdms{} Web Modeling Tool\footnote{https://csdms.colorado.edu/wmt}
+(\wmt{}) is a web
+%is the web-based successor to the desktop Component Modeling Tool. \wmt{} 
+application that provides an Ajax client-side (the \wmt{}
+client\footnote{https://github.com/csdms/wmt-client}) graphical interface
+(figure~\ref{fig:wmt_screenshot}) and a RESTful
+server-side database and API (the \wmt{} server\footnote{https://github.com/csdms/wmt}) that allows users to build and run coupled Earth system models on
+a high-performance computing cluster from a web browser. \wmt{} was designed
+with four objectives:
 \begin{itemize}
 
-\item  \emph{Accessibility}. As a web-based application, if you have access
-to the Internet, you have access to WMT.
+\item \emph{Accessibility}. As a web-based application, if you have access
+      to the Internet, you have access to \wmt{}.
 
-\item  \emph{Integration}. Easily hyperlink from WMT to resources on the \csdms
-portal - including model documentation, labs, lectures, tutorials and
-movies - or to other resources on the Internet.
+\item \emph{Integration}. Easily hyperlink from \wmt{} to resources on the 
+      \csdms{} modeling portal (model documentation, labs, lectures,
+      tutorials)
+      %tutorials and movies - or to other resources on the Internet.
 
-\item \emph{Portability}. WMT has a native JavaScript interface, so it can be
-accessed on any modern web browser, including tablet and mobile
-versions of browsers.
+\item \emph{Portability}. \wmt{} has a native JavaScript interface, so it can
+      be accessed on any modern web browser
+%, including tablet and mobile
+      versions of browsers.
 
-\item \emph{Maintenance}. Because modern browsers tend to adhere to web
-standards, which lead to fewer cross-compatibility issues than
-operating systems, only one version of WMT needs to be developed
-and maintained.
+%\item \emph{Maintenance}. Because modern browsers tend to adhere to web
+%      standards, which lead to fewer cross-compatibility issues than
+%      operating systems, only one version of WMT needs to be developed
+%      and maintained.
 
 \end{itemize}
+With \wmt{}, users can: \emph{run} single component models, build (2-way)
+\emph{coupled models}, view and \emph{edit} model parameters, \emph{share}
+saved models with others in the community.
 
-With WMT, a user can:
-
+\begin{comment}
 \begin{itemize}
 
-\item select a Common Component Architecture (CCA) component model
-      from a list to run in standalone mode;
+\item select and run a single component model
 
-\item build a coupled model from multiple CCA components organized as nodes
-      of a tree structure;
+\item build a coupled model from multiple components
 
-\item  view and edit the parameters of the model components;
+\item view and edit the parameters of the model components;
 
-\item save models to a server, where they can be accessed on any computer
-      connected to the Internet;
+%\item save models to a server, where they can be accessed on any computer
+%      connected to the Internet;
 
 \item share saved models with others in the community;
 
-\item run a model by connecting to a remote HPCC where the components are
-      installed.
+%\item run a model by connecting to a remote HPCC where the components are
+%      installed.
 
 \end{itemize}
+\end{comment}
 
-Although WMT is web-based, the building and configuring of a model can be done
-offline. Reconnection is necessary only when saving a model and submitting it
-for a run.
+%Although WMT is web-based, the building and configuring of a model can be done
+%offline. Reconnection is necessary only when saving a model and submitting it
+%for a run.
+%\section{Reusable Components}
+\begin{comment}
+\subsection{Software sustainability through expanded functionality}
+
+Another important goal of CSDMS is to enable the rapid development and application of linked dynamical models tailored to specific landscape-basin evolution problems and at specific temporal and spatial scales. Interdisciplinarity and coupling is a critical step towards advancing predictive modeling~\cite{voinov2010community}.
+
+CSDMS develops a modeling environment containing a suite of integrated, ever-improving software modules, with expanded functionality beyond the original stand-alone codes. 
+
+The modeling coupling framework is designed to catalyze Earth-surface process research by empowering a broad community of scientists, students and applied modelers with computing tools, streamlining the process of idea generation and hypothesis testing through linked surface dynamics models, and enabling rapid creation and coupling of models tailored to specific settings, scientific problems, and time scales
+\end{comment}
+
+%\section{The \csdms Modeling Framework}
+
+\section{Education and Evaluation of \csdms{} tools}
+\label{sec:education}
+
+
+%\subsection{CSDMS has an educational mission}
+%\subsection{Education and Evaluation}
+
+%\wmt{} provides the ability to run models with an easy to use graphical
+%interface and intends to serve novice and more experienced modelers alike.
+%The WMT beta version was released in May 2014  as a sequel to the CMT.
+
+\csdms{} constantly evaluates the effectiveness of its tools and standards
+through user feedback from clinics and tutorials and one-on-one interviews
+with \csdms{} members.  Modeling courses at the University of Colorado,
+clinics at the International Summer Institute at the University of Minnesota,
+and clinics at annual CSDMS Annual Meetings are the dominant forums for
+this testing and feedback. 
+
+%IF staff habitually evaluates the effectiveness of this tool and uses the feedback to improve the functionality: modeling courses at the University of Colorado, clinics at the International Summer Institute at the University of Minnesota, and clinics at annual CSDMS Annual Meetings are the dominant forums for this testing. 
+
+Over the last 4 years over 150 graduate students - from geography, hydrology,
+geology, oceanography, earth sciences and engineering departments - have
+enrolled in intensive \csdms{}-run modeling courses. These courses
+provide an excellent use case for us to test usability and access to the
+tool. Students reported in post-course surveys that they were unfamiliar with
+the use of models on a high performance computing cluster beforehand (rated
+their familiarity as 1.5 average on a scale of 1-5), but ended the courses
+with familiarity and being more comfortable with running and changing
+simulations as well as visualizing results (average rating approaches 4 on
+a Likert scale of 1-5). 
+
+%Focused hands-on clinics at meetings also allowed more than 150 CSDMS members to experience the ease of use of \wmt{}, and try several examples of how to use the tool. 
+
+Course and clinic materials are posted online as educational resources.
+\csdms{} develops \wmt{}-specific help pages for all models currently
+available as components, so that users can easily learn about model
+parameters and input files. In addition, we are developing web-based video
+tutorials that show how to run models.
+
+\section{Summary: Building an active and efficient Modeling Community}
+
+\csdms{} provides cyber-infrastructure to promote the quantitative modeling of
+earth surface processes. The US National Science Foundation funds \csdms{}, but
+the community is international and includes industry and federal agency
+representatives in addition to members from academic institutions. The
+initiative has been growing with more than 150 people per year. \csdms{} now
+fosters a community of approximately 1200 scientists who work on prediction
+of the movement of fluids, and the production, erosion, transport, and
+deposition of sediment and nutrients in landscapes and seascapes. 
+
+\section{Acknowledgements}
+
+The \csdms{} Integration Facility operates under continuing grant 0621695
+from the US National Science Foundation.
 
 \begin{figure}
   \caption{The \csdms Web Modeling Tool}
@@ -322,66 +509,11 @@ for a run.
   \label{fig:wmt_screenshot}
 \end{figure}
 
-\section{Digital Object Identifiers for Numerical Models}
-
-\csdms is a strong advocate of truly open source software.  We believe this to
-reduce redundancy, provide transparency through external review and make
-research replicable, which is fundamental to scientific practices
-~\cite{ince2012case}. \csdms acts as a venue through which open source code of
-earth surface models are promoted, either by hosting or pointing towards open
-source software. A Digital Object Identifier (DOI) system is implemented to
-guarantee recognition to open source software contributors. DOI systems are
-typically used to identify intellectual property in the digital environment.
-It is used principally by publishers, and is an implementation of the Handle
-System for persistent identifiers. The International DOI Federation (IDF)
-appoints Registration Agencies who allocate DOI prefixes, register DOI Names,
-and provide the necessary infrastructure to allow registrants to declare and
-maintain metadata. \csdms is among the first software venues to assign DOIs to
-open source software. The advantages of adopting a DOI system for open source
-software are: 
-\begin{itemize}
-\item Guarantee credit to the software developer
-\item Easily reuse and replicate research as software is directly locatable 
-\item Increase software visibility, DOI content is 5 times more likely to
-      deliver active links than content without.
-\item Provide e.g. funding agencies the ability to track usage, so measure
-      impact.
-\end{itemize}
-
-\csdms requests its DOIs through the Integrated Earth Data Applications (IEDA),
-a formal Publication Agent of the DOI system that operates through the German
-National Library of Science and Technology. Only stable versions of open source
-software that are physically hosted through the \csdms repository will get a DOI
-assigned. For model software citations, \csdms recommend following the DataCite
-guidelines~\cite{brase2009datacite}. Interpreting these guidelines a citation
-should have the following construction:
-
-\begin{shaded}
-\leftskip 0.25in
-\parindent -0.25in
-\tt{
-Developer, A., Developer, B. (Year of publication). \emph{Name of the model},
-Model Version. Identifier.
-}
-%\emph{ModelDeveloper(s)}, (\emph{PublicationYear}). \emph{ModelName},
-%\emph{ModelVersion}. \emph{Identifier}.
-\end{shaded}
-
-The DOI system for numerical models is adopted by
-\csdms as an incentive towards the earth surface processes community, to
-stimulate contributions towards open source software by ensuring recognition
-towards its developers.
-
-
-\section{Acknowledgements}
-
-The \csdms Integration Facility operates under continuing grant 0621695 from the
-US National Science Foundation.
-
 \bibliographystyle{plain}
 
 \bibliography{wssspe-citations}{}
 
+\begin{comment}
 \huttonnote{Add something about model DOIs in the abstract}
 
 \huttonnote{
@@ -437,6 +569,7 @@ US National Science Foundation.
   \end{itemize}
 \end{itemize}
 }
+\end{comment}
 
 
 \end{document}
