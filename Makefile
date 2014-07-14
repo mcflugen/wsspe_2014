@@ -1,4 +1,4 @@
-NAME=paper
+NAME=hutton_et_al_2014_wssspe
 PAPER=$(NAME)
 BIBDIR=../bib
 BIBFILES=./wssspe-citations.bib
