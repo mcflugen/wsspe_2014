@@ -51,6 +51,7 @@
 \author{
   Eric W. H. Hutton$^{\dag}$,
   Mark D. Piper$^{\dag}$,
+  Scott D. Peckham$^{\dag}$,
   Irina Overeem$^{\dag}$,
   Albert J. Kettner$^{\dag}$,
   James P. M. Syvitski$^{\dag}$,
@@ -290,21 +291,22 @@ a high-performance computing cluster from a web browser. \wmt{} was designed
 with four objectives:
 \begin{itemize}
 
-\item \emph{Accessibility}. As a web-based application, if you have access
-      to the Internet, you have access to \wmt{}.
+\item \emph{Accessibility}. As a web-based application, users with internet
+      access, have access to \wmt{}.
 
 \item \emph{Integration}. Easily hyperlink from \wmt{} to resources on the 
       \csdms{} modeling portal (model documentation, labs, lectures,
       tutorials)
       %tutorials and movies - or to other resources on the Internet.
 
-\item \emph{Portability}. \wmt{} has a native JavaScript interface, so it can
-      be accessed on any modern web browser
+\item \emph{Portability}. \wmt{} has a native JavaScript interface.
+      JavaScript is an open standard and almost every computer is equipped
+      with a JavaScript-capable web browser.
 
-\item \emph{Maintenance}. Because modern browsers tend to adhere to web
-      standards, which lead to fewer cross-compatibility issues than
-      operating systems, only one version of WMT needs to be developed
-      and maintained.
+%\item \emph{Maintenance}. Because modern browsers tend to adhere to web
+%      standards, which lead to fewer cross-compatibility issues than
+%      operating systems, only one version of WMT needs to be developed
+%      and maintained.
 
 \end{itemize}
 With \wmt{}, users can: \emph{run} single component models, build (2-way)
@@ -349,36 +351,50 @@ Another important goal of \csdms{} is to enable the rapid development and applic
 The modeling coupling framework is designed to catalyze Earth-surface process research by empowering a broad community of scientists, students and applied modelers with computing tools, streamlining the process of idea generation and hypothesis testing through linked surface dynamics models, and enabling rapid creation and coupling of models tailored to specific settings, scientific problems, and time scales
 \end{comment}
 
-\section{Education and Evaluation of \csdms{} Tools}
+\section{Education}
 \label{sec:education}
 
-%\wmt{} provides the ability to run models with an easy to use graphical
-%interface and intends to serve novice and more experienced modelers alike.
-%The WMT beta version was released in May 2014  as a sequel to the CMT.
+%\csdms{} constantly evaluates the effectiveness of its tools and standards
+%through user feedback from clinics and tutorials and one-on-one interviews
+%with \csdms{} members.  Modeling courses at the University of Colorado,
+%clinics at the International Summer Institute at the University of Minnesota,
+%and clinics at \csdms{} Annual Meetings are the dominant forums for
+%this testing and feedback. 
 
-\csdms{} constantly evaluates the effectiveness of its tools and standards
-through user feedback from clinics and tutorials and one-on-one interviews
-with \csdms{} members.  Modeling courses at the University of Colorado,
-clinics at the International Summer Institute at the University of Minnesota,
-and clinics at \csdms{} Annual Meetings are the dominant forums for
-this testing and feedback. 
+It has been our experience that new graduate students in the Earth sciences
+begin with little or no programming experience. However, their interest in
+programming is high and they see the importance of programming with regard
+to their thesis topics. More often than not, programming courses are not
+offered as part of their coursework and so, out of necessity to solve a
+particular problem, students end up teaching themselves how to program.
 
-Over the last 4 years over 150 graduate students - from geography, hydrology,
-geology, oceanography, earth sciences and engineering departments - have
-enrolled in intensive \csdms{}-run modeling courses. These courses
-provide an excellent use case for us to test usability and access to our
-tools. Students reported in post-course surveys that they were unfamiliar with
-the use of models on a high performance computing cluster beforehand (rated
-their familiarity as 1.5 average on a Likert scale of 1-5), but ended the
-courses with familiarity and being more comfortable with running and changing
-simulations as well as visualizing results (average rating approaches 4)
-~\cite{overeem2013strategies}. 
+We believe providing these students with even a small base in programming and
+guidelines on best practices will go a long way. We have hosted several
+programming workshops, including one through Software Carpentry. The workshops
+were such a success that we are now planning an annual Software Carpentry
+bootcamp that is specifically targeted to incoming graduate students. The
+workshops fill up nearly immediately, which reflects a strong interest and
+need for basic software skills. We believe these workshops strike a good
+balance between teaching students about computer science topics and
+maintaining a pragmatic focus on problem solving.
 
-Course and clinic materials are posted online as educational resources.
-\csdms{} develops \wmt{}-specific help pages for all models currently
-available as components, so that users can easily learn about model
-parameters and input files. In addition, we are developing web-based video
-tutorials that show how to run models.
+
+%Over the last 4 years over 150 graduate students - from geography, hydrology,
+%geology, oceanography, earth sciences and engineering departments - have
+%enrolled in intensive \csdms{}-run modeling courses. These courses
+%provide an excellent use case for us to test usability and access to our
+%tools. Students reported in post-course surveys that they were unfamiliar with
+%the use of models on a high performance computing cluster beforehand (rated
+%their familiarity as 1.5 average on a Likert scale of 1-5), but ended the
+%courses with familiarity and being more comfortable with running and changing
+%simulations as well as visualizing results (average rating approaches 4)
+%~\cite{overeem2013strategies}. 
+
+%Course and clinic materials are posted online as educational resources.
+%\csdms{} develops \wmt{}-specific help pages for all models currently
+%available as components, so that users can easily learn about model
+%parameters and input files. In addition, we are developing web-based video
+%tutorials that show how to run models.
 
 \section{Summary: Building an active and efficient modeling community}
 
