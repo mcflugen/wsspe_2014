@@ -67,16 +67,16 @@ project whose focus is to aid a diverse community of earth and ocean system
 model \emph{users} and \emph{developers} to use and create robust software
 quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
 earth-system models and tools to an international (67 country) community
-with the goal of building the set of tools necessary to model the
-earth system. Modelers use \csdms{} for access to hundreds of open
+with the goal of building the set of tools necessary to model
+earth surface processes. Modelers use \csdms{} for access to over two hundred open
 source surface-dynamics models and tools, as well as model metadata. Such a
 model repository increases model transparency and helps eliminate
-duplication by presenting the current state of modeling efforts.
+duplication by presenting the current state of community modeling efforts.
 To increase software sustainability, composability and interoperability,
 \csdms{} promotes standards that define common modeling interfaces, semantic
 mediation between models, and model metadata. Through online resources and
 workshops, \csdms{} promotes software engineering best practices, which are
-unfamiliar to many developers within our modeling community. For example,
+less familiar to many within our community. For example,
 version control, unit testing, continuous integration, test-driven
 development, and well-written \emph{clean code} are all topics of the
 educational mission of \csdms{}.
@@ -88,7 +88,7 @@ educational mission of \csdms{}.
 \section{The Community Surface Dynamics Modeling System}
 
 The mission of the Community Surface Dynamics Modeling System (\csdms{})
-~\cite{peckham2012component} is to help a diverse modeling community toward
+~\cite{peckham2012component} is to help move a diverse modeling community toward
 common goals and standards. This effort involves creating:
 \begin{itemize}
   \item a repository of source code and metadata for open-source models and
@@ -97,8 +97,8 @@ common goals and standards. This effort involves creating:
         within which they can be coupled to create new models
         (Section~\ref{sec:reusable})
   \item an \emph{efficient} and \emph{open} modeling community through
-        standards (Section ~\ref{sec:standards}) and education
-        (Section~\ref{sec:education})
+        standards (Section ~\ref{sec:standards}),
+        communication and education (Section~\ref{sec:education})
 \end{itemize}
 
 In building a modeling framework, \csdms{} has leveraged
@@ -117,10 +117,14 @@ uses
 the \csdms{} Standard Names (Section~\ref{sec:standardnames}) and a framework
 within which models can be coupled and enhanced with a set of \bmi{}-compatible
 service components.
-The \csdms{} Web Modeling Tool (\wmt{} - Section~\ref{sec:wmt}) is a web-based application that provides a
-graphical interface to this framework and allows users to compose new models
-by connecting and configuring components in a simple, browser-based graphical
-interface.
+The \csdms{} Web Modeling Tool (\wmt{} - Section~\ref{sec:wmt}) is a
+web-based application that provides an interface to this
+framework.
+It allows users to compose new models by connecting and
+configuring components in a simple, browser-based graphical interface.
+Further, it provides a standardized interface to standalone models;
+once a user understands how to run a model in \wmt{},
+they can run any model in \wmt{}.
 
 \begin{comment}
 In order to realize the full power and benefits of component-based modeling, a
@@ -173,14 +177,32 @@ scientific practices~\cite{ince2012case}.
 Software accessibility is a key value of the \csdms{} mission. \csdms{}
 ensures code developed by individual researchers or small research teams
 remains accessible beyond the lifetime of a specific research project. Code
-developers are required to distribute their codes under open-source licenses. 
+developers are required to distribute their software under open-source licenses. 
 
-\csdms{} has built an online model repository that not only contains model
-source code but also documents the submitted code as model metadata, runs
-basic smoke-tests of the models, (optionally) maintains the source code in a
-\csdms{}-hosted version control system, and provides easy downloads of the
-original source. The repository now contains over 200 models and tools (over
+\csdms{} has built an online model 
+repository\footnote{http://csdms.colorado.edu/wiki/Model\_download\_portal}
+(Figure~\ref{fig:model_repository_screenshot})
+where \csdms{} members can contribute code.
+The repository stores documentation on submitted code as model metadata,
+including a description, version number,
+a summary of inputs and outputs,
+and author contact information.
+Submitted code is given basic smoke tests,
+then it is placed under version control in a 
+GitHub repository\footnote{https://github.com/csdms-contrib}
+(if the contributor already maintains the code on GitHub, 
+the code is forked from their repository), 
+where it can be forked or cloned by other users.
+The repository currently contains over 200 models and tools (over
 4M lines of code) and has received over 13k model downloads.
+
+\begin{figure}
+  \caption{The \csdms{} Model Repository}
+  \begin{center}
+    \includegraphics[scale=.25]{csdms_model_repository.eps}
+  \end{center}
+  \label{fig:model_repository_screenshot}
+\end{figure}
 
 \subsection{Digital Object Identifiers for Numerical Models}
 \label{sec:doi}
@@ -201,7 +223,7 @@ source software are:
 \end{itemize}
 
 Only stable versions of open source
-software that are physically hosted through the \csdms{} repository will be
+software that are physically hosted through the \csdms{} model repository are
 assigned a \doi{}. For model software citations, \csdms{} recommends the
 following the DataCite guidelines~\cite{brase2009datacite}.
 
@@ -286,32 +308,41 @@ The \csdms{} Web Modeling Tool\footnote{https://csdms.colorado.edu/wmt}
 application that provides an Ajax client-side (the \wmt{}
 client\footnote{https://github.com/csdms/wmt-client}) graphical interface
 (Figure~\ref{fig:wmt_screenshot}) and a RESTful
-server-side database and API (the \wmt{} server\footnote{https://github.com/csdms/wmt}) that allows users to build and run coupled Earth system models on
+server-side database and API (the \wmt{} server\footnote{https://github.com/csdms/wmt})
+that allows users to build and run coupled models of earth surface processes on
 a high-performance computing cluster from a web browser. \wmt{} was designed
-with four objectives:
+with three objectives:
 \begin{itemize}
 
-\item \emph{Accessibility}. As a web-based application, users with internet
-      access, have access to \wmt{}.
+\item \emph{Accessibility}. As a web-based application, access
+      to the Internet implies access to \wmt{}.
 
 \item \emph{Integration}. Easily hyperlink from \wmt{} to resources on the 
-      \csdms{} modeling portal (model documentation, labs, lectures,
+      \csdms{} portal (model documentation, labs, lectures,
       tutorials)
       %tutorials and movies - or to other resources on the Internet.
 
-\item \emph{Portability}. \wmt{} has a native JavaScript interface.
-      JavaScript is an open standard and almost every computer is equipped
-      with a JavaScript-capable web browser.
-
-%\item \emph{Maintenance}. Because modern browsers tend to adhere to web
-%      standards, which lead to fewer cross-compatibility issues than
-%      operating systems, only one version of WMT needs to be developed
-%      and maintained.
+\item \emph{Portability}. \wmt{} has a native JavaScript interface. JavaScript
+      is an open standard and almost every computer is equipped with a
+      JavaScript-capable web browser.
 
 \end{itemize}
+
+\begin{figure}
+  \caption{The \csdms{} Web Modeling Tool}
+  \begin{center}
+    \includegraphics[scale=.25]{wmt.eps}
+  \end{center}
+  \label{fig:wmt_screenshot}
+\end{figure}
+
+
 With \wmt{}, users can: \emph{run} single component models, build (2-way)
 \emph{coupled models}, view and \emph{edit} model parameters, and \emph{share}
 saved models with others in the community.
+
+%% \wmt{}, and the software stack on which it is built, are portable.
+
 
 \begin{comment}
 \begin{itemize}
@@ -333,14 +364,6 @@ saved models with others in the community.
 \end{itemize}
 \end{comment}
 
-\begin{figure}
-  \caption{The \csdms{} Web Modeling Tool}
-  \begin{center}
-    \includegraphics[scale=.25]{wmt.eps}
-  \end{center}
-  \label{fig:wmt_screenshot}
-\end{figure}
-
 \begin{comment}
 \subsection{Software sustainability through expanded functionality}
 
@@ -351,50 +374,62 @@ Another important goal of \csdms{} is to enable the rapid development and applic
 The modeling coupling framework is designed to catalyze Earth-surface process research by empowering a broad community of scientists, students and applied modelers with computing tools, streamlining the process of idea generation and hypothesis testing through linked surface dynamics models, and enabling rapid creation and coupling of models tailored to specific settings, scientific problems, and time scales
 \end{comment}
 
-\section{Education}
+\section{Communication and Education}
 \label{sec:education}
 
-%\csdms{} constantly evaluates the effectiveness of its tools and standards
-%through user feedback from clinics and tutorials and one-on-one interviews
-%with \csdms{} members.  Modeling courses at the University of Colorado,
-%clinics at the International Summer Institute at the University of Minnesota,
-%and clinics at \csdms{} Annual Meetings are the dominant forums for
-%this testing and feedback. 
+%\wmt{} provides the ability to run models with an easy to use graphical
+%interface and intends to serve novice and more experienced modelers alike.
+%The WMT beta version was released in May 2014  as a sequel to the CMT.
 
-It has been our experience that new graduate students in the Earth sciences
-begin with little or no programming experience. However, their interest in
-programming is high and they see the importance of programming with regard
-to their thesis topics. More often than not, programming courses are not
-offered as part of their coursework and so, out of necessity to solve a
-particular problem, students end up teaching themselves how to program.
+\subsection{The CSDMS Portal}
 
-We believe providing these students with even a small base in programming and
-guidelines on best practices will go a long way. We have hosted several
-programming workshops, including one through Software Carpentry. The workshops
-were such a success that we are now planning an annual Software Carpentry
-bootcamp that is specifically targeted to incoming graduate students. The
-workshops fill up nearly immediately, which reflects a strong interest and
-need for basic software skills. We believe these workshops strike a good
-balance between teaching students about computer science topics and
+The \csdms{} portal\footnote{http://csdms.colorado.edu}
+is the information clearinghouse for the community.
+Through the portal,
+members can get the latest news,
+access model metadata and source code (Section~\ref{sec:organizing}),
+view conference and workshop announcements,
+view recent job postings,
+and access \csdms{} reports, presentations, and publications.
+%% including educational presentations and short course
+%% materials from \csdms{}-hosted or sponsored workshops.
+The portal uses the open-source MediaWiki software,
+so \csdms{} members can edit, update and extend existing material,
+as well as contribute new material to the portal.
+
+\subsection{User Training}
+
+\csdms{} provides user training in modeling and model coupling
+on high-performance computing clusters
+through short courses held at 
+the University of Colorado,
+the International Summer Institute at the University of Minnesota,
+and at \csdms{} Annual Meetings.
+Course materials are posted to the \csdms{} portal as educational resources.
+In addition to training community members,
+the clinics also provide an excellent opportunity 
+for feedback on using \csdms{} software tools.
+
+\subsection{Programming Courses}
+
+It has been our experience that new graduate students in the Earth
+sciences begin with little or no programming experience. However,
+their interest in programming is high and they see the importance of
+programming with regard to their thesis topics. More often than not,
+programming courses are not offered as part of their coursework and
+so, out of necessity to solve a particular problem, students end up
+teaching themselves how to program.
+
+We believe providing these students with even a small base in programming 
+and guidelines on best practices will go a long way. We have
+hosted several programming workshops, including one through Software
+Carpentry. The workshops were such a success that we are now planning
+an annual Software Carpentry bootcamp that is specifically targeted
+to incoming graduate students. The workshops fill up nearly
+immediately, which reflects a strong interest and need for basic
+software skills. We believe these workshops strike a good balance
+between teaching students about computer science topics and
 maintaining a pragmatic focus on problem solving.
-
-
-%Over the last 4 years over 150 graduate students - from geography, hydrology,
-%geology, oceanography, earth sciences and engineering departments - have
-%enrolled in intensive \csdms{}-run modeling courses. These courses
-%provide an excellent use case for us to test usability and access to our
-%tools. Students reported in post-course surveys that they were unfamiliar with
-%the use of models on a high performance computing cluster beforehand (rated
-%their familiarity as 1.5 average on a Likert scale of 1-5), but ended the
-%courses with familiarity and being more comfortable with running and changing
-%simulations as well as visualizing results (average rating approaches 4)
-%~\cite{overeem2013strategies}. 
-
-%Course and clinic materials are posted online as educational resources.
-%\csdms{} develops \wmt{}-specific help pages for all models currently
-%available as components, so that users can easily learn about model
-%parameters and input files. In addition, we are developing web-based video
-%tutorials that show how to run models.
 
 \section{Summary: Building an active and efficient modeling community}
 
@@ -402,9 +437,9 @@ maintaining a pragmatic focus on problem solving.
 earth surface processes. The US National Science Foundation funds \csdms{}, but
 the community is international and includes industry and federal agency
 representatives in addition to members from academic institutions. The
-initiative has been growing with more than 150 people per year. \csdms{} now
-fosters a community of approximately 1200 scientists who work on prediction
-of the movement of fluids, and the production, erosion, transport, and
+initiative has been growing, adding more than 150 people per year. \csdms{} now
+fosters a community of over 1200 scientists who work on determining
+the movement of fluids, and the production, erosion, transport, and
 deposition of sediment and nutrients in landscapes and seascapes. 
 
 \section{Acknowledgements}
