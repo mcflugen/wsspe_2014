@@ -1,7 +1,7 @@
-NAME=hutton_et_al_2014_wssspe
+NAME=article
 PAPER=$(NAME)
 BIBDIR=../bib
-BIBFILES=./wssspe-citations.bib
+BIBFILES=./article-citations.bib
 
 # Write stdout here
 #OUTPUT=/dev/null
