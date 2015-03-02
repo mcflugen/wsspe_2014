@@ -21,6 +21,7 @@
 
 \usepackage[bookmarks, bookmarksopen, bookmarksnumbered]{hyperref}
 \usepackage[all]{hypcap}
+\usepackage{doi}
 \urlstyle{rm}
 
 \definecolor{orange}{rgb}{1.0,0.3,0.0}
@@ -48,40 +49,40 @@
 
 \title[]{Building Sustainable Software - The CSDMS Approach}
 
-\author{
-  Eric W. H. Hutton$^{\dag}$,
-  Mark D. Piper$^{\dag}$,
-  Scott D. Peckham$^{\dag}$,
-  Irina Overeem$^{\dag}$,
-  Albert J. Kettner$^{\dag}$,
-  James P. M. Syvitski$^{\dag}$,
-}
+%\author{
+%  Eric W. H. Hutton$^{\dag}$,
+%  Mark D. Piper$^{\dag}$,
+%  Scott D. Peckham$^{\dag}$,
+%  Irina Overeem$^{\dag}$,
+%  Albert J. Kettner$^{\dag}$,
+%  James P. M. Syvitski$^{\dag}$,
+%}
 
 \thanks{{}$^{\dag}$Community Surface Dynamics Modeling System, University of
 Colorado}
 
-\begin{abstract}
+%\begin{abstract}
 
-\csdms{}, The Community Surface Dynamics Modeling System, is an NSF funded
-project whose focus is to aid a diverse community of earth and ocean system
-model \emph{users} and \emph{developers} to use and create robust software
-quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
-earth-system models and tools to an international (67 country) community
-with the goal of building the set of tools necessary to model
-earth surface processes. Modelers use \csdms{} for access to over two hundred open
-source surface-dynamics models and tools, as well as model metadata. Such a
-model repository increases model transparency and helps eliminate
-duplication by presenting the current state of community modeling efforts.
-To increase software sustainability, composability and interoperability,
-\csdms{} promotes standards that define common modeling interfaces, semantic
-mediation between models, and model metadata. Through online resources and
-workshops, \csdms{} promotes software engineering best practices, which are
-less familiar to many within our community. For example,
-version control, unit testing, continuous integration, test-driven
-development, and well-written \emph{clean code} are all topics of the
-educational mission of \csdms{}.
+%\csdms{}, The Community Surface Dynamics Modeling System, is an NSF funded
+%project whose focus is to aid a diverse community of earth and ocean system
+%model \emph{users} and \emph{developers} to use and create robust software
+%quickly.  To this end, \csdms{} develops, integrates, archives and disseminates
+%earth-system models and tools to an international (67 country) community
+%with the goal of building the set of tools necessary to model
+%earth surface processes. Modelers use \csdms{} for access to over two hundred open
+%source surface-dynamics models and tools, as well as model metadata. Such a
+%model repository increases model transparency and helps eliminate
+%duplication by presenting the current state of community modeling efforts.
+%To increase software sustainability, composability and interoperability,
+%\csdms{} promotes standards that define common modeling interfaces, semantic
+%mediation between models, and model metadata. Through online resources and
+%workshops, \csdms{} promotes software engineering best practices, which are
+%less familiar to many within our community. For example,
+%version control, unit testing, continuous integration, test-driven
+%development, and well-written \emph{clean code} are all topics of the
+%educational mission of \csdms{}.
 
-\end{abstract}
+%\end{abstract}
 
 \maketitle
 
@@ -284,7 +285,8 @@ components to form larger models and obtain additional functionality through
 
 The \csdms{} \emph{Standard Names}
 \footnote{https://github.com/csdms/standard\_names}
-are a common language for variable names exchanged between models. They play
+are a common language for variable names exchanged between models
+~\cite{peckham2014csdms}. They play
 an important role in the \bmi{} as they provide a mapping of a model's
 internal variable names to a common language used by the \bmi{} getter and
 setter functions.
@@ -447,7 +449,7 @@ deposition of sediment and nutrients in landscapes and seascapes.
 The \csdms{} Integration Facility operates under continuing grant 0621695
 from the US National Science Foundation.
 
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 
 \bibliography{article-citations}{}
 
